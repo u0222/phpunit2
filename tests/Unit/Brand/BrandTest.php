@@ -37,6 +37,7 @@ class BrandTest extends TestCase
      */
     public function test_ブランド名が重複していない場合trueを返すこと()
     {
+        // ブランド名が重複していないブランド情報を作成
         $brand = new Brand([
             'name' => 'あいうえお'
         ]);
@@ -44,6 +45,7 @@ class BrandTest extends TestCase
         /* Lesson02 タスク -初級編- 課題2 */
         // テスト実施
         $actual = $this->target->checkUnique($brand);
+
         // 検証処理
         $this->assertTrue($actual);
     }
@@ -55,13 +57,14 @@ class BrandTest extends TestCase
      */
     public function test_ブランド名が重複する場合falseを返すこと()
     {
-        $this->withoutExceptionHandling();
         $brand = new Brand([
             'name' => 'ブランドA'
         ]);
 
+        // テスト実施
         $actual = $this->target->checkUnique($brand);
 
+        // 検証処理
         $this->assertFalse($actual);
     }
 

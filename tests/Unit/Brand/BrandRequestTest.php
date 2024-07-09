@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Brand;
 
-use App\http\Requests\BrandRequest;
+use App\Admin\Requests\BrandRequest;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
@@ -31,6 +31,7 @@ class BrandRequestTest extends TestCase
         $validator = Validator::make($data, $rules);
         // テスト実施
         $actual = $validator->passes();
+        // 期待値の設定
         $expected = true;
 
         // 検証
@@ -50,14 +51,13 @@ class BrandRequestTest extends TestCase
         $request = new BrandRequest();
         $rules = $request->rules();
         $validator = Validator::make($data, $rules);
-
         /* Lesson02 タスク -初級編- 課題1 */
         // テスト実施
         $actual = $validator->passes();
         // 期待値の設定
         $expected = true;
         // 検証
-        $this->assertSame($expected, $actual);    
+        $this->assertSame($expected, $actual);        
     }
 
     /**
